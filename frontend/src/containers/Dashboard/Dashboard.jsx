@@ -10,7 +10,7 @@ const Dashboard = () => {
         // document.cookie = "refreshToken=asdasdds";
         const cookienya = Cookies.get("refreshToken");
 
-        if (!cookienya) return navigate("/login");
+        if (!cookienya) return navigate("/verify");
 
         console.log(cookienya);
     });
