@@ -1,23 +1,21 @@
 import React from "react";
 import { useNavigate } from "react-router";
 import { useEffect } from "react";
-import Cookies from "js-cookie";
+import Cookie from "js-cookie";
 
 const Dashboard = () => {
     let navigate = useNavigate();
 
     useEffect(() => {
         // document.cookie = "refreshToken=asdasdds";
-        const cookienya = Cookies.get("refreshToken");
 
+        const cookienya = Cookie.get("refreshToken");
         if (!cookienya) return navigate("/verify");
-
-        console.log(cookienya);
-    });
+        }, []);
 
     return (
         <div>
-            <h1>masuk dashbaoard</h1>
+            <h1>{Cookie.get("refreshToken")}</h1>
         </div>
     );
 };

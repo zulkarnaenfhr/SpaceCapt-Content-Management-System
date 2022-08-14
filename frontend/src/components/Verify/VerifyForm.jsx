@@ -2,13 +2,60 @@ import React from "react";
 import styles from "./VerifyForm.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faGooglePlusG, faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router";
+import Cookies from "js-cookie";
 
 const VerifyForm = () => {
     const rightPanel = useRef(null);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        const cookienya = Cookies.get("refreshToken");
+        if (cookienya) return navigate("/");
+    }, []);
 
     const handleClick = () => {
         rightPanel.current.classList.toggle(styles["RightPanel"]);
+    };
+
+    const handleRegister = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post(`${process.env.REACT_APP_URL_BACKEND}/users`, {
+                username: username,
+                password: password,
+                confirmPassword: confirmPassword,
+                email: email,
+                name: name,
+            });
+            navigate("/");
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post(
+                `${process.env.REACT_APP_URL_BACKEND}/login`,
+                {
+                    username: username,
+                    password: password,
+                },
+                {
+                    withCredentials: true,
+                }
+            );
+            navigate("/");
+        } catch (error) {}
     };
 
     return (
@@ -28,11 +75,11 @@ const VerifyForm = () => {
                                 <FontAwesomeIcon icon={faTwitter} />
                             </div>
                         </div>
-                        <form action="" className={styles["VerifyForm-Form"]}>
+                        <form action="" onSubmit={handleLogin} className={styles["VerifyForm-Form"]}>
                             <p className={styles["VerifyForm-Label"]}>or use your account</p>
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Username" id="" />
+                            <input onChange={(e) => setUsername(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Username" id="" />
                             <br />
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Password" id="" />
+                            <input onChange={(e) => setPassword(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Password" id="" />
                             <p className={styles["VerifyForm-Label"]}>Forgot your password?</p>
                             <div className={styles["VerifyForm-Form-Button-Container"]}>
                                 <button className={styles["VerifyForm-Form-Button"]} type="submit">
@@ -80,17 +127,17 @@ const VerifyForm = () => {
                                 <FontAwesomeIcon icon={faTwitter} />
                             </div>
                         </div>
-                        <form action="" className={styles["VerifyForm-Form"]}>
+                        <form action="" onSubmit={handleRegister} className={styles["VerifyForm-Form"]}>
                             <p className={styles["VerifyForm-Label"]}>or use your account</p>
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Username" id="" />
+                            <input onChange={(e) => setUsername(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" required placeholder="Username" id="" />
                             <br />
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Password" id="" />
+                            <input onChange={(e) => setPassword(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" required placeholder="Password" id="" />
                             <br />
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="ConfirmPassword" id="" />
+                            <input onChange={(e) => setConfirmPassword(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" required placeholder="ConfirmPassword" id="" />
                             <br />
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Email" id="" />
+                            <input onChange={(e) => setEmail(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Email" required id="" />
                             <br />
-                            <input className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Name" id="" />
+                            <input onChange={(e) => setName(e.target.value)} className={styles["VerifyForm-Input"]} type="text" name="" placeholder="Name" id="" required />
                             <div className={styles["VerifyForm-Form-Button-Container"]}>
                                 <button className={styles["VerifyForm-Form-Button"]} type="submit">
                                     Sign Up

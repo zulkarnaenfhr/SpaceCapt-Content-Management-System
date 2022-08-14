@@ -22,6 +22,7 @@
 .VerifyForm.RightPanel .VerifyForm-Login {
     transform: translateX(100%);
     opacity: 0;
+    z-index: -1;
 }
 
 .VerifyForm.RightPanel .VerifyForm-SignUp {
@@ -56,6 +57,7 @@
     align-items: center;
     justify-content: center;
     transition: all 1.5s ease-in-out;
+    z-index: 6;
 }
 
 .VerifyForm-Title {
@@ -117,14 +119,22 @@
 .VerifyForm-Form-Button {
     width: 155px;
     height: 45px;
-    background-color: #7190ec;
     border-radius: 25px;
     font-weight: 700;
     font-size: 14px;
     letter-spacing: 1.15px;
     background-color: #4b70e2;
+    border: 1px solid #4b70e2;
     color: #f9f9f9;
     border: none;
+    transition: all 0.4s ease-in-out;
+    z-index: 3;
+}
+
+.VerifyForm-Form-Button:hover {
+    background: white;
+    border: 1px solid #4b70e2;
+    color: #4b70e2;
 }
 
 /* end of verifyLogin  */

@@ -90,7 +90,6 @@ export const loginUser = async (req, res) => {
 
         // buat set cookie di browser, maxages berguna jika lebih dari waktu yang ditentukan maka cookie akan otomatis kehapus
         res.cookie("refreshToken", refreshToken, {
-            httpOnly: true,
             maxAge: 60 * 60 * 1000,
         });
 
