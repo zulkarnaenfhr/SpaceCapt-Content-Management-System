@@ -11,7 +11,7 @@ const Dashboard = () => {
 
         const cookienya = Cookie.get("refreshToken");
         if (!cookienya) return navigate("/verify");
-        }, []);
+    }, []);
 
     return (
         <div>

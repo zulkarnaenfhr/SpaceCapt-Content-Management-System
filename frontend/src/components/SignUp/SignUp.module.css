@@ -1,4 +1,4 @@
-#Verify {
+#SignUp-Pages {
     width: 100vw;
     height: 100vh;
     display: flex;
@@ -8,35 +8,34 @@
     background-color: #f0f2f5;
 }
 
-.Verify-Container {
+.SignUp-Pages-Container {
     display: flex;
     justify-content: center;
     align-items: center;
     border: 1px solid red;
     padding: 40px;
-    width: 100%;
 }
 
-.Verify-Title {
+.SignUp-Pages-Title {
     font-weight: 700;
     color: #ff4a4a;
 }
 
-.Form-SignIn-Container {
+.Form-Container {
     width: 100%;
     padding: 40px;
     background-color: white;
     border-radius: 20px;
 }
 
-.Form-SignIn-Input-Wrapper {
+.Form-Input-Wrapper {
     width: 100%;
     height: 50px;
     position: relative;
     margin-top: 15px;
 }
 
-.Form-SignIn-Input-Wrapper input {
+.Form-Input-Wrapper input {
     width: 100%;
     height: 100%;
     font-size: 15px;
@@ -46,19 +45,19 @@
     border-radius: 10px;
 }
 
-.Form-SignIn-Input-Wrapper label {
+.Form-Input-Wrapper label {
     position: absolute;
     top: 50%;
     left: 10px;
     transform: translateY(-50%);
     transition: all 0.3s ease-in-out;
-    font-size: 13px;
+    font-size: 15px;
     pointer-events: none;
 }
 
 input:focus + label,
 input:valid + label {
-    font-size: 13px;
+    font-size: 15px;
     top: 0;
     left: 10px;
     background-color: white;
@@ -70,7 +69,7 @@ input:focus {
     outline: none;
 }
 
-.Form-SignIn-Input-Button-Submit {
+.Form-Input-Button-Submit {
     margin-top: 15px;
     width: 100%;
     line-height: 48px;
@@ -78,55 +77,17 @@ input:focus {
     background-color: #54bab9;
     border: 1px solid #54bab9;
     color: white;
-    transition: all 0.4s ease-in-out;
-    font-weight: 600;
-    font-size: 16px;
 }
 
-.Form-SignIn-Input-Button-Submit:hover {
-    background-color: white;
-    color: #54bab9;
-}
-
-.Form-SignIn-Forgoten-Password {
+.Form-Forgoten-Password {
     text-align: center;
     font-size: 15px;
-    color: #6ba6f4;
+    color: #1877f2;
     font-weight: 500;
     margin-top: 10px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
 }
 
-.Form-SignIn-Forgoten-Password:hover {
-    color: #1877f2;
-}
-
-.Form-SignIn-Border {
+.Form-Border {
     width: 100%;
     border-bottom: 1px solid rgb(156, 156, 156);
-}
-
-.Form-SignIn-Input-Button-Register-Container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.Form-SignIn-Input-Button-Register {
-    margin-top: 15px;
-    width: 60%;
-    line-height: 38px;
-    border-radius: 6px;
-    background-color: #ff4a4a;
-    border: 1px solid #ff4a4a;
-    color: white;
-    transition: all 0.4s ease-in-out;
-    font-weight: 600;
-    font-size: 16px;
-}
-
-.Form-SignIn-Input-Button-Register:hover {
-    background-color: white;
-    color: #ff4a4a;
 }
