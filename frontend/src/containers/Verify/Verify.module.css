@@ -1,33 +1,42 @@
 #Verify {
     width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+    min-height: 100vh;
+    height: fit-content;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center;
     font-family: "Montserrat", sans-serif;
     background-color: #f0f2f5;
+    padding: 40px;
 }
 
 .Verify-Container {
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
-    padding: 40px;
     width: 100%;
 }
 
 .Verify-Title {
     font-weight: 700;
     color: #ff4a4a;
+    font-size: 40px;
+    text-align: center;
+}
+
+.Verify-Title2 {
+    text-align: center;
+    font-size: 17px;
 }
 
 .Form-SignIn-Container-Parent {
     width: 100%;
-    max-width: 400px;
+    display: flex;
+    justify-content: center;
 }
 
 .Form-SignIn-Container {
+    max-width: 400px;
     width: 100%;
     padding: 40px;
     background-color: white;
@@ -134,4 +143,70 @@ input:focus {
 .Form-SignIn-Input-Button-Register:hover {
     background-color: white;
     color: #ff4a4a;
+}
+
+@media screen and (max-width: 1200px) {
+    .Verify-Title {
+        font-size: calc(0.9 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.9 * 17px);
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .Verify-Title {
+        font-size: calc(0.8 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.8 * 17px);
+    }
+    .Form-SignIn-Input-Button-Register {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .Verify-Title {
+        font-size: calc(0.9 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.9 * 17px);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    #Verify {
+        padding: 40px 10px;
+    }
+    .Verify-Title {
+        font-size: calc(0.8 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.8 * 17px);
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .Verify-Title {
+        font-size: calc(0.75 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.75 * 17px);
+    }
+    .Form-SignIn-Container {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .Verify-Title {
+        font-size: calc(0.7 * 40px);
+    }
+    .Verify-Title2 {
+        font-size: calc(0.7 * 17px);
+    }
+    .Form-SignIn-Container {
+        padding: 10px;
+    }
 }
