@@ -8,7 +8,6 @@ export default function SignUpForm(props) {
         <Modal {...props} size="lg" dialogClassName={styles["Form-Register-Parent"]} contentClassName={styles["Form-Register"]} aria-labelledby="contained-modal-title-vcenter" centered>
             <div>
                 <Modal.Header closeButton>
-                    {/* <Modal.Title id="contained-modal-title-vcenter">Modal heading</Modal.Title> */}
                     <div className={styles["Modal-Header-Container"]}>
                         <h1>Sign Up</h1>
                         <br />
