@@ -6,11 +6,11 @@ POST http://localhost:5000/users
 Content-Type: application/json
 
 {
+    "name": "Fahri Izzuddin Zulkarnaen",
     "username": "zulkarnaenfhr",
     "password": "123",
     "confirmPassword": "123",
-    "email": "fahri@gmail.com",
-    "name": "Fahri Izzuddin Zulkarnaen"
+    "email": "fahri@gmail.com"
 }
 
 ### 
