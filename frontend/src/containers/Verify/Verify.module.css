@@ -43,6 +43,18 @@
     border-radius: 20px;
 }
 
+.Status-Invalid-Container {
+    background-color: #ffeeee;
+    color: #cc3333;
+    font-weight: 600;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
 .Form-SignIn-Input-Wrapper {
     width: 100%;
     height: 50px;

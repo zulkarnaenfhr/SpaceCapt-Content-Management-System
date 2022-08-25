@@ -1,11 +1,44 @@
 import React from "react";
 import { useState } from "react";
-import { Container, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import SignUpForm from "../../components/Verify/SignUpForm";
 import styles from "./Verify.module.css";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Verify = () => {
     const [modalShow, setModalShow] = useState(false);
+    const [statusError, setStatusError] = useState(false);
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    let navigate = useNavigate();
+
+    const auth = async (e) => {
+        e.preventDefault();
+        try {
+            await axios.post(
+                "http://localhost:5000/login",
+                {
+                    username: username,
+                    password: password,
+                },
+                {
+                    Credential: true,
+                    withCredentials: true,
+                }
+            );
+            navigate("/home");
+        } catch (error) {
+            await Swal.fire({
+                icon: "error",
+                title: "<strong>Invalid Username or Password!</strong>",
+                timer: "5000",
+            });
+            setStatusError(true);
+        }
+    };
+
     return (
         <div id={styles["Verify"]}>
             <Row className={styles["Verify-Container"]}>
@@ -15,18 +48,21 @@ const Verify = () => {
                 </Col>
                 <Col md={6}>
                     <div className={styles["Form-SignIn-Container-Parent"]}>
-                        <form action="" className={styles["Form-SignIn-Container"]}>
-                            <div
-                                className={styles["Form-SignIn-Input-Wrapper"]}
-                                style={{
-                                    marginTop: "unset",
-                                }}
-                            >
-                                <input type="text" required />
+                        <form onSubmit={auth} action="" className={styles["Form-SignIn-Container"]}>
+                            {statusError ? (
+                                <div className={styles["Status-Invalid-Container"]}>
+                                    <span>Invalid Username or Password!</span>
+                                </div>
+                            ) : (
+                                ""
+                            )}
+
+                            <div className={styles["Form-SignIn-Input-Wrapper"]}>
+                                <input onChange={(e) => setUsername(e.target.value)} type="text" required />
                                 <label htmlFor="">Username</label>
                             </div>
                             <div className={styles["Form-SignIn-Input-Wrapper"]}>
-                                <input type="password" required />
+                                <input onChange={(e) => setPassword(e.target.value)} type="password" required />
                                 <label htmlFor="">Password</label>
                             </div>
                             <button type="submit" className={styles["Form-SignIn-Input-Button-Submit"]}>
