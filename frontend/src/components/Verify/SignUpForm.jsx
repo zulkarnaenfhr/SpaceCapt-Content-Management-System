@@ -22,23 +22,23 @@ export default function SignUpForm(props) {
                                 marginTop: "unset",
                             }}
                         >
-                            <input type="text" required />
+                            <input placeholder="a" type="text" required />
                             <label htmlFor="">Name</label>
                         </div>
                         <div className={styles["Form-SignUp-Input-Wrapper"]}>
-                            <input type="text" required />
+                            <input placeholder="a" type="text" required />
                             <label htmlFor="">Email</label>
                         </div>
                         <div className={styles["Form-SignUp-Input-Wrapper"]}>
-                            <input type="text" required />
+                            <input placeholder="a" type="text" required />
                             <label htmlFor="">Username</label>
                         </div>
                         <div className={styles["Form-SignUp-Input-Wrapper"]}>
-                            <input type="password" required />
+                            <input type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="a" required />
                             <label htmlFor="">Password</label>
                         </div>
                         <div className={styles["Form-SignUp-Input-Wrapper"]}>
-                            <input type="password" required />
+                            <input placeholder="a" type="password" required />
                             <label htmlFor="">Confirm Password</label>
                         </div>
 

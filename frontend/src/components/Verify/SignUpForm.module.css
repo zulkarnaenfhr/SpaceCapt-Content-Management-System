@@ -63,13 +63,28 @@
 }
 
 input:focus + label,
-input:valid + label {
+input:valid + label,
+input:invalid + label {
     font-size: 13px;
     top: 0;
     left: 10px;
     background-color: white;
     border: 1px solid transparent;
     color: rgb(82, 82, 82);
+}
+
+input::placeholder {
+    color: transparent;
+}
+
+input:placeholder-shown + label {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+    transition: all 0.3s ease-in-out;
+    font-size: 13px;
+    pointer-events: none;
 }
 
 input:focus {

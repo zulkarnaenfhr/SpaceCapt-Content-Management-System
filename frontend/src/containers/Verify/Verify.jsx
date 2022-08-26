@@ -58,20 +58,26 @@ const Verify = () => {
                             )}
 
                             <div className={styles["Form-SignIn-Input-Wrapper"]}>
-                                <input onChange={(e) => setUsername(e.target.value)} type="text" required />
+                                <input placeholder="a" onChange={(e) => setUsername(e.target.value)} type="text" required />
                                 <label htmlFor="">Username</label>
                             </div>
                             <div className={styles["Form-SignIn-Input-Wrapper"]}>
-                                <input onChange={(e) => setPassword(e.target.value)} type="password" required />
+                                <input placeholder="a" onChange={(e) => setPassword(e.target.value)} type="password" required />
                                 <label htmlFor="">Password</label>
                             </div>
-                            <button type="submit" className={styles["Form-SignIn-Input-Button-Submit"]}>
+                            <button onClick={SubmitEvent} type="submit" className={styles["Form-SignIn-Input-Button-Submit"]}>
                                 Log In
                             </button>
                             <p className={styles["Form-SignIn-Forgoten-Password"]}>Forgotten password?</p>
                             <div className={styles["Form-SignIn-Border"]}></div>
                             <div className={styles["Form-SignIn-Input-Button-Register-Container"]}>
-                                <button onClick={() => setModalShow(true)} className={styles["Form-SignIn-Input-Button-Register"]}>
+                                <button
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        setModalShow(true);
+                                    }}
+                                    className={styles["Form-SignIn-Input-Button-Register"]}
+                                >
                                     Create New Account
                                 </button>
                             </div>
