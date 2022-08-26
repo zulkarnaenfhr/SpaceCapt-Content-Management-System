@@ -1,18 +1,23 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Col, Row } from "react-bootstrap";
 import SignUpForm from "../../components/Verify/SignUpForm";
 import styles from "./Verify.module.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import Cookie from "js-cookie";
 
 const Verify = () => {
-    const [modalShow, setModalShow] = useState(false);
+    const [modalShow, setModalShow] = useState(true);
     const [statusError, setStatusError] = useState(false);
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     let navigate = useNavigate();
+
+    useEffect(() => {
+        const cookienya = Cookie.get("refreshToken");
+        if (cookienya) return navigate("/");
+    }, []);
 
     const auth = async (e) => {
         e.preventDefault();
@@ -28,7 +33,7 @@ const Verify = () => {
                     withCredentials: true,
                 }
             );
-            navigate("/home");
+            navigate("/");
         } catch (error) {
             await Swal.fire({
                 icon: "error",

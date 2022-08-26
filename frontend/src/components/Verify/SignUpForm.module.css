@@ -28,6 +28,18 @@
     font-size: 16px;
 }
 
+.Status-Invalid-Container {
+    background-color: #ffeeee;
+    color: #cc3333;
+    font-weight: 600;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    border-radius: 10px;
+    justify-content: center;
+}
+
 .Form-SignUp-Container {
     width: 100%;
     padding: 10px 40px;
@@ -85,6 +97,26 @@ input:placeholder-shown + label {
     transition: all 0.3s ease-in-out;
     font-size: 13px;
     pointer-events: none;
+}
+
+input:invalid {
+    border: 1px solid red;
+}
+
+input:invalid + label {
+    color: red;
+}
+
+input:invalid:focus + label {
+    color: red;
+}
+
+input:placeholder-shown:invalid + label {
+    color: black;
+}
+
+input:placeholder-shown:invalid {
+    border: 1px solid rgb(156, 156, 156);
 }
 
 input:focus {

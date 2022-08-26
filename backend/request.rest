@@ -7,9 +7,9 @@ Content-Type: application/json
 
 {
     "name": "Fahri Izzuddin Zulkarnaen",
-    "username": "zulkarnaenfhr",
-    "password": "123",
-    "confirmPassword": "123",
+    "username": "asd",
+    "password": "asd",
+    "confirmPassword": "asd",
     "email": "fahri@gmail.com"
 }
 
